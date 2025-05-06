@@ -17,6 +17,12 @@ body, html {
     width: 100%;
 }
 
+/* Estilo para el logo */
+.logo-container {
+    margin-top: 0px;
+    margin-left: 40%;   
+}
+
 
 /* Modal */
 .modal-content {

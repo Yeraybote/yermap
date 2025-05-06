@@ -106,4 +106,36 @@ function addMarker({ lat, lng, title, difficulty, image, id }) {
       });
     });
 }
-  
+
+let debounceTimer;
+const input = document.getElementById('locationInput');
+const suggestionsList = document.getElementById('suggestions');
+
+input.addEventListener('input', () => {
+  const query = input.value.trim();
+  clearTimeout(debounceTimer);
+
+  if (query.length < 3) {
+    suggestionsList.innerHTML = '';
+    return;
+  }
+
+  debounceTimer = setTimeout(() => {
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`)
+      .then(res => res.json())
+      .then(results => {
+        suggestionsList.innerHTML = '';
+        results.slice(0, 5).forEach(place => {
+          const li = document.createElement('li');
+          li.classList.add('list-group-item', 'list-group-item-action');
+          li.textContent = place.display_name;
+          li.addEventListener('click', () => {
+            map.setView([place.lat, place.lon], 15);
+            suggestionsList.innerHTML = '';
+            input.value = place.display_name;
+          });
+          suggestionsList.appendChild(li);
+        });
+      });
+  }, 400);  // Espera 400ms desde la última tecla antes de buscar
+});
