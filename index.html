@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YERMAP</title>
+    <script type="module" src="js/index.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS y Popper.js (necesarios para los componentes interactivos) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Leaflet Mapas -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="resources/yermap.jpg" type="image/jpg">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Logo centrado -->
+        <div class="logo-container">
+            <img src="resources/yermap.jpg" alt="Logo YERMAP" class="logo" width="100" height="100">
+        </div>
+
+        <div id="map"></div>
+
+        <!-- Modal para añadir un nuevo punto -->
+        <div class="modal fade" id="addPointModal" tabindex="-1" aria-labelledby="modalPuntoLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalPuntoLabel">Añadir un nuevo punto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="cerrarModal"></button>
+                </div>
+                <div class="modal-body">
+                <!-- Formulario de datos del punto -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="title" placeholder="Introduce el título del punto">
+                </div>
+                <div class="mb-3">
+                    <label for="difficulty" class="form-label">Dificultad</label>
+                    <select class="form-select" id="difficulty">
+                      <option value="">Selecciona la dificultad</option>
+                      <option value="blue">Fácil</option>
+                      <option value="green">Medio</option>
+                      <option value="red">Difícil</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Imagen (opcional)</label>
+                    <input type="text" class="form-control" id="image" placeholder="URL de la imagen (opcional)">
+                </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="guardarPunto">Guardar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="cerrarPunto">Cancelar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
