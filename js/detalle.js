@@ -76,7 +76,7 @@ function generarListaHTML(items) {
               href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item + ' ' + title)}" 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="btn btn-sm btn-outline-primary"
+              class="btn btn-sm btn-success"
               title="Buscar en Google Maps"
             >
               Ver en Maps
@@ -85,7 +85,7 @@ function generarListaHTML(items) {
         `).join('')}
       </ul>
     `;
-  }
+}
   
 
 // Al darle al logo de la app, redirigir a la página principal

@@ -39,7 +39,6 @@ map.on('click', async function(e) {
     // Vaciamos los campos del modal
     document.getElementById('title').value = '';
     document.getElementById('difficulty').value = '';
-    document.getElementById('image').value = '';
 });
 
 // Evento para guardar el punto en la base de datos
@@ -48,14 +47,12 @@ document.getElementById('guardarPunto').addEventListener('click', function(event
     const { lat, lng } = gLatlng;
     const title = document.getElementById('title').value;
     const difficulty = document.getElementById('difficulty').value;
-    const image = document.getElementById('image').value;
 
     const nuevoPunto = {
         lat,
         lng,
         title,
-        difficulty,
-        image
+        difficulty
     };
 
     console.log(nuevoPunto);
@@ -72,7 +69,7 @@ document.getElementById('guardarPunto').addEventListener('click', function(event
     
 });
 
-function addMarker({ lat, lng, title, difficulty, image, id }) {
+function addMarker({ lat, lng, title, difficulty, id }) {
     const popupContent = `
     <h3>${title}</h3>
     <button class="btn btn-danger" id="deleteButton">Eliminar</button>
