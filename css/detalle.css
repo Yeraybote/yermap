@@ -1,0 +1,36 @@
+/* Reseteo básico de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    /* background-color: #002c49; */
+    background-image: url('../resources/fondo.jpg'); 
+    background-size: 600px;
+}
+
+/* Estilo para el logo */
+.logo-container {
+    margin-top: 0px;
+    text-align: center;
+    margin-bottom: 10px; /* Espacio entre el logo y el formulario */
+    width: 100%;
+}
+
+.logo-container img {
+    width: 180px; /* Ajusta el tamaño del logo */
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 24px;
+    font-style: italic;
+    margin-top: 10px; /* Espacio entre el logo y el título */
+}

@@ -74,12 +74,11 @@ document.getElementById('guardarPunto').addEventListener('click', function(event
 
 function addMarker({ lat, lng, title, difficulty, image, id }) {
     const popupContent = `
-      <h3>${title}</h3>
-      <p><strong>Categoría:</strong> ${difficulty}</p>
-      ${image ? `<img src="${image}" alt="${title}" style="width: 250px; height: 150px;" />` : ''}
-      <br>
-      <button class="btn btn-danger" id="deleteButton">Eliminar</button>
-    `;
+    <h3>${title}</h3>
+    <button class="btn btn-danger" id="deleteButton">Eliminar</button>
+    <a class="btn btn-primary text-light" href="./views/detalle.html?title=${encodeURIComponent(title)}">Ver detalle</a>
+  `;
+
 
     const customIcon = L.icon({
         iconUrl: markerIcons[difficulty] || markerIcons.blue,
