@@ -94,4 +94,19 @@ document.getElementById('logo').addEventListener('click', () => {
 });
   
   
-  
+document.getElementById('compartirBtn').addEventListener('click', () => {
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      text: '¡Mira este lugar en YERMAP!',
+      url: window.location.href
+    }).catch(error => {
+      console.error('Error al compartir:', error);
+    });
+  } else {
+    // Fallback para navegadores que no soportan Web Share API
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      alert('Enlace copiado al portapapeles');
+    });
+  }
+});
